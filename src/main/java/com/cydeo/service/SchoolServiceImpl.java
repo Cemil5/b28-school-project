@@ -26,16 +26,22 @@ public class SchoolServiceImpl implements CRUDService<School>{
 
     @Override
     public void save(School school) {
+        schoolList.add(school);
 
     }
 
     @Override
     public void update(School school) {
-
+        for (int i = 0; i < findAll().size(); i++) {
+            if (findAll().get(i).getId() == school.id){
+                findAll().set(i,school);
+            }
+        }
     }
 
     @Override
     public void deleteById(int id) {
+        schoolList.removeIf(school -> school.getId() == id);
 
     }
 }
