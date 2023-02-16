@@ -12,12 +12,14 @@ import static com.cydeo.database.Database.schoolList;
 public class SchoolServiceImpl implements CRUDService<School>{
     @Override
     public School findById(int id) {
-       return schoolList.stream().filter(school -> school.getId()==id).findAny().orElseThrow(() -> new NoSuchElementException("No school with this ID"));
+       return schoolList.stream()
+               .filter(school -> school.getId()==id).findAny()
+               .orElseThrow(() -> new NoSuchElementException("No school with this ID" + id));
     }
 
     @Override
-    public List<School> findAll() {
-        return schoolList.stream().collect(Collectors.toList());
+    public  List<School> findAll() {
+        return schoolList;
     }
 
     @Override
@@ -28,9 +30,9 @@ public class SchoolServiceImpl implements CRUDService<School>{
 
     @Override
     public void update(School school) {
-        for (int i = 0; i < findAll().size(); i++) {
-            if (findAll().get(i).getId() == school.id){
-                findAll().set(i,school);
+        for (int i = 0; i < schoolList.size(); i++) {
+            if (schoolList.get(i).getId() == school.id){
+                schoolList.set(i,school);
             }
         }
     }
