@@ -1,6 +1,8 @@
 package com.cydeo;
 
 import com.cydeo.database.Database;
+import com.cydeo.entity.Student;
+import com.cydeo.service.CRUDService;
 
 public class SchoolMainRunner {
 
@@ -18,7 +20,8 @@ public class SchoolMainRunner {
 
     public static void main(String[] args) {
 
-        Database.courseList.forEach(System.out::println);
+//        Database.courseList.forEach(System.out::println);
+
 
     }
 
