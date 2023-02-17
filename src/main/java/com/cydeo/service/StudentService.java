@@ -2,6 +2,7 @@ package com.cydeo.service;
 
 import com.cydeo.entity.Student;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
@@ -20,8 +21,7 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public List<Student> findAll() {
-        return studentList.stream()
-                .collect(Collectors.toList());
+        return new ArrayList<>(studentList);
     }
 
     @Override
@@ -31,7 +31,11 @@ public class StudentService implements CRUDService<Student> {
 
     @Override
     public void update(Student student) {
-
+        for (int i = 0; i < studentList.size(); i++) {
+            if (studentList.get(i).getId() == student.id){
+                studentList.set(i,student);
+            }
+        }
     }
 
     @Override
