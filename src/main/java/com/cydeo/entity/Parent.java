@@ -19,4 +19,14 @@ public class Parent extends BaseEntity {
         this.lastName = lastName;
         this.phoneNumber = phoneNumber;
     }
+
+    @Override
+    public String toString() { // to see parent's id on console when we run the parent list
+        return "Parent{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", phoneNumber='" + phoneNumber + '\'' +
+                ", id=" + id +
+                '}';
+    }
 }

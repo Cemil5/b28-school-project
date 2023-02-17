@@ -4,13 +4,16 @@ import com.cydeo.database.Database;
 import com.cydeo.entity.Parent;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 import java.util.stream.Collectors;
 
 public class ParentServiceImpl implements CRUDService<Parent> {
     @Override
     public Parent findById(int id) {
 
-        return Database.parentList.stream().filter(p->p.getId()==id).findFirst().get();
+        return Database.parentList.stream().
+                filter(p->p.getId()==id).findFirst()
+                .orElseThrow(()->new NoSuchElementException("You dont have parent whis has this id"));
     }
 
     @Override
