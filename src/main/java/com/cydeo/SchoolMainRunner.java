@@ -24,7 +24,6 @@ public class SchoolMainRunner {
     public static void main(String[] args) {
         try {
             System.out.println(teacherService.findById(3));
-
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
