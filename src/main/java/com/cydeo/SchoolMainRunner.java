@@ -1,9 +1,11 @@
 package com.cydeo;
 
 import com.cydeo.database.Database;
+
 import com.cydeo.entity.*;
 import com.cydeo.service.CRUDService;
 import com.cydeo.service.TeacherService;
+
 
 public class SchoolMainRunner {
 
@@ -22,11 +24,13 @@ public class SchoolMainRunner {
     }
 
     public static void main(String[] args) {
+
         try {
             System.out.println(teacherService.findById(3));
         } catch (Exception e){
             System.out.println(e.getMessage());
         }
+
 
     }
 
